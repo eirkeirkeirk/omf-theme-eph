@@ -52,11 +52,11 @@ function fish_prompt
 
   # Line 1
   # echo -n $white'╭─'$hotpink$USER$white' at '$orange$__fish_prompt_hostname$white' in '$limegreen(pwd)$turquoise
-  echo -n $limegreen(pwd)$turquoise
+  echo -n \n$blue(__parse_current_folder)$turquoise
   __fish_git_prompt " (%s)"
   echo
 
   # Line 2
   # echo -n $white'╰─'$__fish_prompt_char $normal
-  echo -n $white$__fish_prompt_char $normal
+  echo -n $white'❯ '$normal
 end
