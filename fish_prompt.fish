@@ -9,29 +9,15 @@ function fish_prompt
   if not set -q __fish_prompt_char
     switch (id -u)
       case 0
-	set -g __fish_prompt_char '#'
+        set -g __fish_prompt_char '#'
       case '*'
-	set -g __fish_prompt_char '❯'
+        set -g __fish_prompt_char '❯'
     end
   end
 
   # Setup colors
-  #use extended color pallete if available
-#if [[ $terminfo[colors] -ge 256 ]]; then
-#    turquoise="%F{81}"
-#    orange="%F{166}"
-#    purple="%F{135}"
-#    hotpink="%F{161}"
-#    limegreen="%F{118}"
-#else
-#    turquoise="%F{cyan}"
-#    orange="%F{yellow}"
-#    purple="%F{magenta}"
-#    hotpink="%F{red}"
-#    limegreen="%F{green}"
-#fi
   set -l normal (set_color normal)
-  set -l white (set_color FFFFFF)
+  set -l white (set_color white)
   set -l turquoise (set_color 5fdfff)
   set -l orange (set_color df5f00)
   set -l hotpink (set_color df005f)
@@ -51,12 +37,10 @@ function fish_prompt
   set -g __fish_git_prompt_show_informative_status true
 
   # Line 1
-  # echo -n $white'╭─'$hotpink$USER$white' at '$orange$__fish_prompt_hostname$white' in '$limegreen(pwd)$turquoise
   echo -n \n$blue(__parse_current_folder)$turquoise
-  __fish_git_prompt " [%s]"
+  __fish_git_prompt " (%s)"
   echo
 
   # Line 2
-  # echo -n $white'╰─'$__fish_prompt_char $normal
-  echo -n $white'❯ '$normal
+  echo -n (set_color red)'❯ '$normal
 end
