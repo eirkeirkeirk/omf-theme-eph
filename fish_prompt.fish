@@ -15,7 +15,7 @@ function fish_prompt
     end
   end
 
-  # Setup colors
+  # Set up colors
   set -l normal (set_color normal)
   set -l white (set_color white)
   set -l turquoise (set_color 5fdfff)
